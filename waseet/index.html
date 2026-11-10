@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شركة الوسيط | الخدمات المالية والوساطة والحلول البرمجية — طرابلس</title>
+<meta name="description" content="شركة الوسيط من طرابلس: خدمات مالية وأعمال وساطة، وقسم للبرمجيات والخدمات الإلكترونية (نواة)، وخدمة الطلب والشراء أونلاين.">
+<meta name="theme-color" content="#0D1F5C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="شركة الوسيط — المال والأعمال والتقنية تحت سقف واحد">
+<meta property="og:description" content="خدمات مالية ووساطة، برمجيات وخدمات إلكترونية، وطلب وشراء أونلاين. طرابلس، غوط الشعال.">
+<meta property="og:url" content="https://nawat.net.ly/waseet/">
+<link rel="icon" type="image/svg+xml" href="mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1F5C;--royal:#1E3F9E;--royal2:#2D55C2;--gold:#C9A24B;--gold2:#F6DE9C;--cream:#F6F4EF;--ink:#0A1022;
+  --text:#1b2440;--muted:#5b6582;--line:rgba(13,31,92,.10);--card:#fff;--r:24px;--max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Alexandria,"Segoe UI",Tahoma,sans-serif;background:var(--cream);color:var(--text);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:96px 0;position:relative}
+.below{content-visibility:auto;contain-intrinsic-size:800px}
+
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(246,244,239,.85);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{height:40px;width:auto}
+.links{display:flex;gap:28px;font-size:14px;color:var(--muted);font-weight:600}
+.links a:hover{color:var(--royal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;font-weight:800;padding:14px 26px;font-size:16px;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-royal{background:linear-gradient(135deg,var(--royal2),var(--navy));color:#fff;box-shadow:0 12px 28px rgba(13,31,92,.28)}
+.btn-royal:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(13,31,92,.36)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 60%,#A57C2A);color:#2a1c00;box-shadow:0 12px 28px rgba(201,162,75,.35)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{border:1.5px solid rgba(13,31,92,.18);color:var(--navy);background:rgba(255,255,255,.6)}
+.btn-line:hover{background:#fff}
+.btn-sm{padding:10px 18px;font-size:14px;border-radius:12px}
+
+/* hero */
+.hero{overflow:hidden;min-height:100vh;display:flex;align-items:center;padding:130px 0 70px;background:
+  radial-gradient(800px 500px at 90% 0,rgba(45,85,194,.16),transparent 70%),
+  radial-gradient(600px 400px at 0 100%,rgba(201,162,75,.16),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--royal);background:rgba(45,85,194,.08);border:1px solid rgba(45,85,194,.18);padding:7px 14px;border-radius:999px}
+h1{font-size:clamp(38px,5.4vw,66px);line-height:1.22;font-weight:800;color:var(--navy);margin:20px 0 18px;letter-spacing:-.5px}
+.goldtxt{background:linear-gradient(120deg,#A57C2A,var(--gold) 45%,#e6c57a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;color:var(--muted);font-size:14px}
+.facts b{display:block;color:var(--navy);font-size:15px}
+
+/* 3D coin */
+.stage{perspective:1200px;display:grid;place-items:center;min-height:440px;position:relative}
+.coin{width:min(300px,62vw);aspect-ratio:1;position:relative;transform-style:preserve-3d;animation:spin 14s linear infinite}
+.face{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:radial-gradient(circle at 30% 25%,#fff3c8,var(--gold2) 25%,var(--gold) 60%,#8a6420);box-shadow:inset 0 0 0 10px rgba(255,255,255,.25),inset 0 0 40px rgba(90,60,0,.45)}
+.face img{width:56%;border-radius:22%;box-shadow:0 10px 25px rgba(13,31,92,.35)}
+.face.front{transform:translateZ(5px)}
+.face.back{transform:rotateY(180deg) translateZ(5px)}
+.face.back span{font-size:clamp(28px,5vw,40px);font-weight:800;color:#5a3d06;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.edge{position:absolute;inset:2%;border-radius:50%;background:#8a6420}
+@keyframes spin{from{transform:rotateX(12deg) rotateY(0)}to{transform:rotateX(12deg) rotateY(360deg)}}
+.shadow{position:absolute;bottom:22px;width:220px;height:26px;border-radius:50%;background:radial-gradient(rgba(13,31,92,.28),transparent 70%)}
+.tag{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 15px;font-size:13px;font-weight:600;color:var(--navy);box-shadow:0 18px 40px rgba(13,31,92,.12);animation:float 6s ease-in-out infinite;white-space:nowrap}
+.tag .e{font-size:22px}
+.t1{top:6%;right:0}.t2{top:44%;left:-2%;animation-delay:-2s}.t3{bottom:10%;right:6%;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* sections */
+.kicker{color:var(--gold);font-weight:800;font-size:14px}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.3;margin:8px 0 12px;color:var(--navy);font-weight:800}
+.sub{color:var(--muted);max-width:640px;font-size:17px}
+.head{margin-bottom:46px}.center{text-align:center}.center .sub{margin:0 auto}
+
+.divs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.div{position:relative;background:var(--card);border-radius:var(--r);padding:30px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(13,31,92,.06);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;overflow:hidden;display:flex;flex-direction:column}
+.div:hover{transform:translateY(-8px) rotateX(3deg);box-shadow:0 34px 70px rgba(13,31,92,.14)}
+.div .ic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;font-size:32px;margin-bottom:18px;background:linear-gradient(145deg,rgba(45,85,194,.14),rgba(201,162,75,.14))}
+.div h3{font-size:21px;color:var(--navy);margin-bottom:8px}
+.div p{color:var(--muted);font-size:15px;flex:1}
+.div ul{list-style:none;margin:14px 0 22px;display:grid;gap:8px;font-size:14.5px}
+.div li::before{content:"✦";color:var(--gold);margin-left:8px}
+.div.feat{background:linear-gradient(160deg,var(--royal2),var(--navy));color:#fff;border-color:transparent}
+.div.feat h3,.div.feat p,.div.feat li{color:#fff}.div.feat p{opacity:.85}
+.div.feat .ic{background:rgba(255,255,255,.12)}
+.ribbon{position:absolute;top:18px;left:18px;font-size:11px;font-weight:800;color:#2a1c00;background:linear-gradient(135deg,var(--gold2),var(--gold));padding:4px 10px;border-radius:999px}
+
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.w{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+.w .e{font-size:30px}.w h4{color:var(--navy);margin:8px 0 4px;font-size:17px}.w p{color:var(--muted);font-size:14px}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px}
+.box h3{color:var(--navy);font-size:22px;margin-bottom:10px}
+.addr{font-size:18px;font-weight:600;color:var(--navy)}
+.mapcard{border-radius:var(--r);padding:32px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:20px;background:
+  radial-gradient(400px 260px at 20% 20%,rgba(246,222,156,.25),transparent 70%),linear-gradient(150deg,var(--royal2),var(--navy));position:relative;overflow:hidden}
+.mapcard::after{content:"📍";position:absolute;left:24px;bottom:10px;font-size:110px;opacity:.15}
+
+footer{background:var(--ink);color:#aab3cf;padding:50px 0 110px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+footer a:hover{color:#fff}
+
+.wa{position:fixed;z-index:60;left:max(18px,env(safe-area-inset-left));bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;padding:0 20px 0 8px;height:60px;border-radius:999px;background:#25d366;color:#05230f;font-weight:800;box-shadow:0 14px 34px rgba(37,211,102,.45);transition:transform .2s}
+.wa:hover{transform:translateY(-3px) scale(1.03)}
+.wa .ico{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;position:relative}
+.wa .ico::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid rgba(255,255,255,.7);animation:ring 2.2s infinite}
+@keyframes ring{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
+.wa svg{width:28px;height:28px}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+
+/* promos */
+.promos{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 18px}
+.promos::-webkit-scrollbar{display:none}
+.promo{flex:0 0 min(520px,86%);scroll-snap-align:start;border-radius:var(--r);padding:28px;color:#fff;position:relative;overflow:hidden;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.promo h3{font-size:22px;line-height:1.4}.promo p{opacity:.88;font-size:15px}
+.promo .e{position:absolute;left:18px;bottom:-10px;font-size:110px;opacity:.18;line-height:1}
+.promo .btn{align-self:flex-start;padding:10px 18px;font-size:14px}
+.p1{background:linear-gradient(135deg,#2D55C2,#0D1F5C)}
+.p2{background:linear-gradient(135deg,#312e81,#1e3a8a)}
+.p3{background:linear-gradient(135deg,#A57C2A,#C9A24B 55%,#e9cf8d);color:#2a1c00}
+.dots{display:flex;gap:8px;justify-content:center}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(13,31,92,.2);cursor:pointer;transition:width .3s,background .3s}
+.dots button.on{width:26px;border-radius:9px;background:var(--royal)}
+
+/* app */
+.app{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:32px;padding:48px;box-shadow:0 30px 70px rgba(13,31,92,.08);overflow:hidden}
+.phone-stage{perspective:1200px;display:grid;place-items:center}
+.phone{width:240px;aspect-ratio:9/19;border-radius:38px;padding:10px;background:linear-gradient(160deg,#1c2a55,#0A1022);box-shadow:0 40px 80px rgba(13,31,92,.35),inset 0 0 0 2px rgba(255,255,255,.08);transform:rotateY(18deg) rotateX(6deg) rotateZ(-2deg);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.app:hover .phone{transform:rotateY(4deg) rotateX(2deg)}
+.pscreen{height:100%;border-radius:30px;background:var(--cream);overflow:hidden;display:flex;flex-direction:column}
+.pbar{background:linear-gradient(135deg,var(--royal2),var(--navy));color:#fff;padding:26px 16px 18px;display:flex;align-items:center;gap:10px;font-weight:800}
+.pbar img{width:34px;border-radius:10px}
+.prow{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}
+.pt{background:#fff;border-radius:14px;padding:12px 8px;text-align:center;font-size:11px;font-weight:600;color:var(--navy);box-shadow:0 4px 12px rgba(13,31,92,.06)}
+.pt span{display:block;font-size:22px;margin-bottom:2px}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.store{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:16px;background:var(--ink);color:#fff;transition:transform .2s}
+.store:hover{transform:translateY(-2px)}
+.store .e{font-size:26px}
+.store small{display:block;font-size:11px;opacity:.7}
+.store b{font-size:16px}
+.store.web{background:#fff;color:var(--navy);border:1.5px solid rgba(13,31,92,.18)}
+.hint{margin-top:14px;font-size:13px;color:var(--muted)}
+
+@media (max-width:980px){
+  .hero{min-height:auto;padding-top:110px}
+  .hero .wrap,.visit{grid-template-columns:1fr}
+  .divs{grid-template-columns:1fr}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .links{display:none}
+  .stage{min-height:360px}
+  .app{grid-template-columns:1fr;padding:32px 22px}
+}
+@media (max-width:600px){
+  section{padding:70px 0}
+  .why{grid-template-columns:1fr}
+  .cta .btn{width:100%}
+  .t2{left:0}
+  .tag{font-size:12px;padding:9px 12px}
+  .wa{padding:0;width:60px;justify-content:center}.wa span{display:none}
+  .nav .btn-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top"><img class="logo" src="logo.svg" alt="الوسيط — Al Waseet" width="141" height="40"></a>
+    <div class="links">
+      <a href="#about">من نحن</a>
+      <a href="#divisions">خدماتنا</a>
+      <a href="https://nawat.net.ly/">نواة للبرمجيات</a>
+      <a href="#app">التطبيق</a>
+      <a href="#visit">زورنا</a>
+    </div>
+    <a class="btn btn-royal btn-sm" href="#app">📱 حمّل التطبيق</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">🇱🇾 من طرابلس · غوط الشعال</span>
+      <h1>المال والأعمال والتقنية<br><span class="goldtxt">تحت سقف واحد.</span></h1>
+      <p class="lead"><strong>شركة الوسيط</strong> تقدّم الخدمات المالية وأعمال الوساطة، وتبني عبر قسمها <strong>نواة</strong> حلولاً برمجية وخدمات إلكترونية للأفراد والشركات.</p>
+      <div class="cta">
+        <a class="btn btn-royal" href="#divisions">🏛️ اكتشف خدماتنا</a>
+        <a class="btn btn-gold" href="https://nawat.net.ly/">💻 قسم البرمجيات والخدمات الإلكترونية</a>
+      </div>
+      <div class="facts">
+        <div><b>💼 مالية ووساطة</b>صرف وحوالات ووساطة</div>
+        <div><b>💻 نواة</b>برمجيات وخدمات إلكترونية</div>
+        <div><b>🛍️ أونلاين</b>طلب وشراء من المتاجر</div>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="coin">
+        <div class="edge"></div>
+        <div class="face front"><img src="mark.svg" alt="" width="160" height="160"></div>
+        <div class="face back"><span>الوسيط</span></div>
+      </div>
+      <div class="shadow"></div>
+      <div class="tag t1"><span class="e">💱</span>صرف العملات</div>
+      <div class="tag t2"><span class="e">🌍</span>حوالات خارجية</div>
+      <div class="tag t3"><span class="e">🛒</span>شراء أونلاين</div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">من نحن</div>
+      <h2>شركة قابضة… بثلاث أذرع 🤝</h2>
+      <p class="sub">نجمع الخبرة المالية والتجارية مع التقنية، باش نخدم زبائننا بسرعة ووضوح، من معاملة صرف بسيطة لين منظومة كاملة لإدارة محل.</p>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="below" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv" style="margin-bottom:22px"><div class="kicker">📣 جديد الوسيط</div></div>
+    <div class="promos" id="promos">
+      <div class="promo p1"><span class="e">📱</span><div><h3>تطبيق الوسيط متاح الآن</h3><p>على أندرويد، وعلى الويب للآيفون والكمبيوتر.</p></div><a class="btn btn-gold" href="#app">حمّل التطبيق</a></div>
+      <div class="promo p2"><span class="e">💻</span><div><h3>نواة بوز 3.5.1</h3><p>نقطة بيع كاملة تعمل بدون إنترنت. جرّبها مجاناً 10 أيام.</p></div><a class="btn btn-gold" data-link="nawat" href="https://nawat.net.ly/">اكتشف نواة</a></div>
+      <div class="promo p3"><span class="e">🛍️</span><div><h3>تبي حاجة من متجر عالمي؟</h3><p>نطلبها ونشتريها لك ونتابعها حتى توصلك.</p></div><a class="btn btn-royal" data-link="wa-shop" href="https://wa.me/218923497337">اطلب على واتساب</a></div>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<section id="divisions" class="below" style="padding-top:0">
+  <div class="wrap">
+    <div class="divs">
+      <div class="div rv">
+        <div class="ic">💼</div>
+        <h3>الخدمات المالية والوساطة</h3>
+        <p>معاملات مالية واضحة وموثوقة، بأسعار معلنة ومتابعة لكل عملية.</p>
+        <ul><li>بيع وشراء العملات</li><li>الحوالات الخارجية لعدة دول</li><li>أعمال الوساطة التجارية</li></ul>
+        <a class="btn btn-line" href="https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9" target="_blank" rel="noopener">💬 استفسر الآن</a>
+      </div>
+      <div class="div feat rv">
+        <span class="ribbon">قسم نواة</span>
+        <div class="ic">💻</div>
+        <h3>البرمجيات والخدمات الإلكترونية</h3>
+        <p>منظومة نواة بوز لنقاط البيع، ومواقع وتطبيقات وأنظمة مخصصة للشركات.</p>
+        <ul><li>نواة بوز: نقطة بيع تعمل بدون إنترنت</li><li>مواقع ومتاجر إلكترونية</li><li>تطبيقات وأنظمة على المقاس</li></ul>
+        <a class="btn btn-gold" href="https://nawat.net.ly/">ادخل إلى نواة ←</a>
+      </div>
+      <div class="div rv">
+        <div class="ic">🛍️</div>
+        <h3>الطلب والشراء أونلاين</h3>
+        <p>تبي حاجة من متجر إلكتروني؟ نطلبها ونشتريها لك ونتابعها حتى توصلك.</p>
+        <ul><li>شراء من المتاجر العالمية</li><li>دفع نيابة عنك</li><li>متابعة الطلب خطوة بخطوة</li></ul>
+        <a class="btn btn-line" href="https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%A3%D9%88%D9%86%D9%84%D8%A7%D9%8A%D9%86" target="_blank" rel="noopener">🛒 اطلب الآن</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="app" class="below">
+  <div class="wrap">
+    <div class="app rv">
+      <div>
+        <div class="kicker">📱 تطبيق الوسيط</div>
+        <h2>معاملاتك في جيبك</h2>
+        <p class="sub">تابع خدمات الوسيط من تطبيق واحد على أندرويد، أو من المتصفح على الآيفون والكمبيوتر.</p>
+        <div class="stores">
+          <a class="store" data-link="android" href="https://al-waseet.mosabswissi123.workers.dev/Waseet.apk" download><span class="e">🤖</span><span><small>حمّل لـ</small><b>أندرويد (APK)</b></span></a>
+          <a class="store web" data-link="web" href="https://al-waseet.mosabswissi123.workers.dev/" target="_blank" rel="noopener"><span class="e">🌐</span><span><small>افتح على</small><b>الآيفون والكمبيوتر</b></span></a>
+        </div>
+        <p class="hint">على الآيفون: افتح الرابط في Safari ← زر المشاركة ← «إضافة إلى الشاشة الرئيسية»، ويصير عندك أيقونة مثل التطبيق.</p>
+      </div>
+      <div class="phone-stage" aria-hidden="true">
+        <div class="phone"><div class="pscreen">
+          <div class="pbar"><img src="mark.svg" alt="" width="34" height="34">الوسيط</div>
+          <div class="prow">
+            <div class="pt"><span>💱</span>صرف العملات</div><div class="pt"><span>🌍</span>الحوالات</div>
+            <div class="pt"><span>🧾</span>الخدمات</div><div class="pt"><span>📒</span>الديون</div>
+            <div class="pt"><span>💵</span>الخزينة</div><div class="pt"><span>📊</span>التقارير</div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="below">
+  <div class="wrap">
+    <div class="head center rv"><div class="kicker">ليش الوسيط؟</div><h2>نشتغل بوضوح… ونتابع لين النهاية ✨</h2></div>
+    <div class="why">
+      <div class="w rv"><span class="e">🔍</span><h4>وضوح كامل</h4><p>السعر والعمولة قدامك قبل أي معاملة.</p></div>
+      <div class="w rv"><span class="e">⚡</span><h4>سرعة في الإنجاز</h4><p>معاملاتك تنجز بأقل وقت وبدون تعقيد.</p></div>
+      <div class="w rv"><span class="e">🔒</span><h4>سرية وأمان</h4><p>بياناتك ومعاملاتك محفوظة ومحمية.</p></div>
+      <div class="w rv"><span class="e">📍</span><h4>مقر معروف</h4><p>تقدر تزورنا في طرابلس وتتعامل وجهاً لوجه.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="below">
+  <div class="wrap">
+    <div class="visit">
+      <div class="box rv">
+        <div class="kicker">زورنا أو كلّمنا</div>
+        <h3>مقر شركة الوسيط</h3>
+        <p class="addr">طرابلس، ليبيا<br>غوط الشعال — شارع عيادة الشفاء</p>
+        <div class="cta">
+          <a class="btn btn-royal" href="https://wa.me/218923497337" target="_blank" rel="noopener">💬 واتساب</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D9%81%D8%A7%D8%A1%20%D8%BA%D9%88%D8%B7%20%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D9%84%20%D8%B7%D8%B1%D8%A7%D8%A8%D9%84%D8%B3" target="_blank" rel="noopener">🗺️ افتح في الخريطة</a>
+        </div>
+      </div>
+      <a class="mapcard rv" href="https://nawat.net.ly/">
+        <div><div class="kicker" style="color:var(--gold2)">قسم البرمجيات</div><h3 style="font-size:26px;margin-top:6px">نواة — حلول برمجية تخدم شغلك 💻</h3><p style="opacity:.85;margin-top:8px">منظومة نواة بوز، مواقع، تطبيقات، وأنظمة مخصصة.</p></div>
+        <span class="btn btn-gold" style="align-self:flex-start">زور موقع نواة ←</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="logo-dark.svg" alt="الوسيط" width="141" height="40" style="height:40px;width:auto" loading="lazy">
+      <p style="margin-top:12px">© 2026 شركة الوسيط · طرابلس، ليبيا</p>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="#divisions">خدماتنا</a><a href="https://nawat.net.ly/">نواة للبرمجيات</a><a href="#visit">العنوان</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D8%B7" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب">
+  <span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#25d366" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.5L3 29l7.1-1.9c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.6C28.8 8.6 23 3 16 3zm0 23.4c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.2 9.8 10 5.1 16 5.1s10.7 4.7 10.7 10.6S21.9 26.4 16 26.4zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></span>
+  <span>راسلنا على واتساب</span>
+</a>
+
+<script>
+// Links in one place: change a value here and every button that uses it follows.
+var LINKS = {
+  android: 'https://al-waseet.mosabswissi123.workers.dev/Waseet.apk',
+  web: 'https://al-waseet.mosabswissi123.workers.dev/',
+  nawat: 'https://nawat.net.ly/',
+  'wa-shop': 'https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%D8%AA%D8%AC%20%D8%A3%D9%88%D9%86%D9%84%D8%A7%D9%8A%D9%86'
+};
+document.querySelectorAll('[data-link]').forEach(function(a){var u=LINKS[a.getAttribute('data-link')];if(u)a.href=u});
+(function(){
+  // Promo cards: dots, swipe, and a gentle auto-advance that pauses on touch/hover.
+  var box=document.getElementById('promos'),dots=document.getElementById('dots');
+  if(box&&dots){
+    var cards=box.children,i=0,timer=null;
+    for(var k=0;k<cards.length;k++){(function(k){var b=document.createElement('button');b.setAttribute('aria-label','عرض '+(k+1));b.onclick=function(){go(k)};dots.appendChild(b)})(k)}
+    var mark=function(){[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===i)})};
+    // Align card edges with the box's start edge (right in RTL), which works whatever the browser's RTL scroll sign is.
+    var gap=function(c){var b=box.getBoundingClientRect(),r=c.getBoundingClientRect();return getComputedStyle(box).direction==='rtl'?r.right-b.right:r.left-b.left};
+    var go=function(k){i=(k+cards.length)%cards.length;box.scrollTo({left:box.scrollLeft+gap(cards[i]),behavior:'smooth'});mark()};
+    box.addEventListener('scroll',function(){var best=0,bd=1e9;for(var j=0;j<cards.length;j++){var d=Math.abs(gap(cards[j]));if(d<bd){bd=d;best=j}}if(best!==i){i=best;mark()}},{passive:true});
+    var start=function(){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(function(){go(i+1)},5000)};
+    var stop=function(){clearInterval(timer)};
+    box.addEventListener('mouseenter',stop);box.addEventListener('mouseleave',start);box.addEventListener('touchstart',stop,{passive:true});
+    mark();start();
+  }
+})();
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('solid',window.scrollY>20)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

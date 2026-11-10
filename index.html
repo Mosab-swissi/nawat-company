@@ -1,474 +1,391 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نواة للأنظمة | Nawat Systems</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نواة بوز | منظومة نقاط بيع تعمل بدون إنترنت</title>
+<meta name="description" content="منظومة نواة بوز لنقاط البيع: بيع بالباركود، مخزون وجرد، أرباح ومصروفات، ديون، ومزامنة سحابية. تعمل بدون إنترنت. نسخة تجريبية مجانية 10 أيام.">
+<meta name="theme-color" content="#060b19">
+<meta property="og:type" content="website">
+<meta property="og:title" content="نواة بوز — نقطة بيع كاملة تعمل حتى بدون إنترنت">
+<meta property="og:description" content="بيع، مخزون، أرباح، ديون وسحابة في منظومة واحدة. جرّبها مجاناً 10 أيام.">
+<meta property="og:image" content="https://nawat.net.ly/media/nawat-pos-demo-poster.jpg">
+<meta property="og:url" content="https://nawat.net.ly/">
+<link rel="icon" type="image/png" href="media/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060b19;--bg2:#0b1430;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+  --text:#f4f6fb;--muted:#a9b3c9;--blue:#3b82f6;--indigo:#6366f1;--gold:#f5d27a;--green:#22c55e;
+  --r:22px;--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Alexandria,"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{position:relative;padding:96px 0}
+.below{content-visibility:auto;contain-intrinsic-size:900px}
+.sky{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(900px 600px at 85% -10%,rgba(99,102,241,.28),transparent 70%),
+  radial-gradient(700px 500px at -10% 30%,rgba(59,130,246,.18),transparent 70%),
+  radial-gradient(800px 500px at 50% 110%,rgba(245,210,122,.08),transparent 70%),var(--bg)}
+.grid-bg{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 70%)}
 
-    <style>
-        body { 
-            font-family: 'Alexandria', sans-serif; 
-            margin: 0;
-            padding: 0;
-            background-color: #060b19; 
-            color: #ffffff; 
-            overflow-x: hidden; 
-        }
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(6,11,25,.78);backdrop-filter:saturate(160%) blur(16px);-webkit-backdrop-filter:saturate(160%) blur(16px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
+.brand img{width:38px;height:38px}
+.brand b{color:var(--gold)}
+.links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;font-weight:800;padding:14px 26px;font-size:16px;transition:transform .2s ease,box-shadow .2s ease,background .2s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-main{background:linear-gradient(135deg,#4f46e5,#3b82f6);box-shadow:0 10px 30px rgba(59,130,246,.35);color:#fff}
+.btn-main:hover{box-shadow:0 16px 40px rgba(59,130,246,.5);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-sm{padding:10px 18px;font-size:14px;border-radius:12px}
 
-        #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
+/* hero */
+.hero{padding:140px 0 60px;min-height:100vh;display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(99,102,241,.14);border:1px solid rgba(129,140,248,.35);color:#c7d2fe;font-size:13px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+h1{font-size:clamp(38px,5.4vw,68px);line-height:1.25;font-weight:800;margin:22px 0 20px;letter-spacing:-.5px}
+.grad{background:linear-gradient(120deg,#fff 10%,#a5b4fc 55%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 26px}
+.trust{display:flex;flex-wrap:wrap;gap:10px}
+.trust span{font-size:13px;color:#d6dcea;background:var(--card);border:1px solid var(--line);padding:7px 13px;border-radius:999px}
 
-        .glass-nav {
-            background: rgba(6, 11, 25, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+/* 3D device */
+.stage{perspective:1400px;position:relative}
+.scene{position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(8deg);transition:transform .6s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.monitor{position:relative;border-radius:20px;padding:12px;background:linear-gradient(160deg,#1f2a4a,#0c1328);box-shadow:0 40px 80px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.08);transform:translateZ(0)}
+.screen{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#0f172a}
+.screen img{width:100%;height:100%;object-fit:cover}
+.stand{width:28%;height:46px;margin:0 auto;background:linear-gradient(#1a2440,#0e152b);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
+.base{width:46%;height:10px;margin:0 auto;border-radius:10px;background:#141d38;box-shadow:0 18px 30px rgba(0,0,0,.5)}
+.chip3d{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:16px;background:rgba(15,23,42,.82);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 18px 40px rgba(0,0,0,.45);font-size:13px;white-space:nowrap;animation:float 6s ease-in-out infinite}
+.chip3d .e{font-size:22px}
+.chip3d small{display:block;color:var(--muted);font-size:11px}
+.chip3d strong{font-size:15px}
+.c1{top:-6%;right:-6%;transform:translateZ(90px)}
+.c2{bottom:20%;left:-10%;transform:translateZ(120px);animation-delay:-2s}
+.c3{bottom:-2%;right:8%;transform:translateZ(70px);animation-delay:-4s}
+@keyframes float{50%{translate:0 -10px}}
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: translateY(-5px);
-        }
+/* sections */
+.kicker{color:var(--gold);font-weight:800;font-size:14px;letter-spacing:.5px}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.3;margin:10px 0 14px;font-weight:800}
+.sub{color:var(--muted);max-width:640px;font-size:17px}
+.head{margin-bottom:46px}
+.center{text-align:center}.center .sub{margin:0 auto}
 
-        .hero-title {
-            line-height: 1.4 !important; 
-            letter-spacing: 0px; 
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-        }
-        
-        .hero-desc {
-            line-height: 1.8 !important;
-            letter-spacing: 0.2px;
-        }
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(129,140,248,.45);background:rgba(255,255,255,.05)}
+.card .ic{font-size:30px;width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(99,102,241,.25),rgba(59,130,246,.08));border:1px solid rgba(129,140,248,.25);margin-bottom:16px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:14.5px}
+.wide{grid-column:span 2}
+.tall{grid-row:span 2}
+.card.hl{background:linear-gradient(160deg,rgba(79,70,229,.28),rgba(59,130,246,.06) 60%);border-color:rgba(129,140,248,.35)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:12px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dbe2f0}
 
-        .gradient-text-custom {
-            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            padding-bottom: 0.2em; 
-            margin-bottom: -0.2em;
-        }
+.trades{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.trade{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:transform .3s,border-color .3s}
+.trade:hover{transform:translateY(-4px) rotateX(4deg);border-color:rgba(245,210,122,.45)}
+.trade .e{font-size:34px;line-height:1}
+.trade h4{font-size:16px}
+.trade p{font-size:13px;color:var(--muted)}
 
-        .tilt-container { 
-            transform-style: preserve-3d; 
-            perspective: 1500px; 
-        }
-        .tilt-element { 
-            transition: transform 0.15s ease-out; 
-            will-change: transform; 
-        }
+.demo{perspective:1600px}
+.frame{max-width:980px;margin:0 auto;border-radius:24px;padding:10px;background:linear-gradient(160deg,#1f2a4a,#0c1328);box-shadow:0 50px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);transform:rotateX(18deg) scale(.94);transform-origin:50% 100%;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.frame.in{transform:none}
+.frame video{border-radius:16px;width:100%;aspect-ratio:16/9;background:#0f172a}
 
-        .magnetic-wrap {
-            display: inline-block;
-            padding: 15px; 
-            margin: -15px;
-        }
-        .magnetic-btn {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-            will-change: transform;
-            position: relative;
-            overflow: hidden;
-        }
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{padding:28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:18px;left:20px;font-size:54px;font-weight:800;color:rgba(255,255,255,.06)}
+.step .e{font-size:34px}
+.step h3{margin:10px 0 4px;font-size:20px}
+.step p{color:var(--muted);font-size:14.5px}
 
-        .btn-primary {
-            background: linear-gradient(135deg, #4f46e5, #3b82f6);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-        .btn-primary:hover {
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
-        }
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 
-        .btn-outline {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-        }
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+details{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px;font-size:15px}
 
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-anim 600ms linear;
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-        @keyframes ripple-anim {
-            to { transform: scale(4); opacity: 0; }
-        }
+.band{border-radius:28px;padding:56px 36px;text-align:center;background:radial-gradient(600px 300px at 80% 0,rgba(245,210,122,.18),transparent 70%),linear-gradient(135deg,#312e81,#1e3a8a);border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(30,58,138,.35)}
+.band h2{margin-top:0}
+.band .cta{justify-content:center;margin-bottom:0}
 
-        /* زر الصعود للأعلى */
-        #scrollTopBtn {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
-            transform: translateY(20px);
-        }
-        #scrollTopBtn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-    </style>
+footer{border-top:1px solid var(--line);padding:46px 0 110px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+footer a:hover{color:#fff}
+.parent{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;border:1px solid rgba(201,162,75,.35);background:rgba(201,162,75,.08);color:#f1dca8;font-weight:600}
+
+/* floating WhatsApp */
+.wa{position:fixed;z-index:60;left:max(18px,env(safe-area-inset-left));bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;padding:0 20px 0 8px;height:60px;border-radius:999px;background:#25d366;color:#05230f;font-weight:800;box-shadow:0 14px 34px rgba(37,211,102,.45);transition:transform .2s}
+.wa:hover{transform:translateY(-3px) scale(1.03)}
+.wa .ico{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;position:relative}
+.wa .ico::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid rgba(255,255,255,.7);animation:ring 2.2s infinite}
+@keyframes ring{from{transform:scale(.8);opacity:1}to{transform:scale(1.35);opacity:0}}
+.wa svg{width:28px;height:28px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .hero{padding-top:110px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .scene{transform:rotateY(-8deg) rotateX(6deg)}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .services,.steps{grid-template-columns:1fr}
+  .links{display:none}
+}
+@media (max-width:600px){
+  section{padding:70px 0}
+  .bento{grid-template-columns:1fr}.wide{grid-column:auto}.tall{grid-row:auto}
+  .cta .btn{width:100%}
+  .c1{right:-2%}.c2{left:-2%}
+  .chip3d{padding:9px 12px;font-size:12px}.chip3d .e{font-size:18px}
+  .wa{padding:0;width:60px;justify-content:center}.wa span{display:none}
+  .nav .btn-sm{display:none}
+  .band{padding:40px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}.frame{transform:none}
+}
+</style>
 </head>
-<body id="top" class="antialiased selection:bg-blue-500 selection:text-white">
+<body>
+<div class="sky"></div>
 
-    <canvas id="particleCanvas"></canvas>
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="media/nawat-mark.png" alt="" width="38" height="38">نواة<b>.</b></a>
+    <div class="links">
+      <a href="#features">المميزات</a>
+      <a href="#trades">الأنشطة</a>
+      <a href="#demo">العرض</a>
+      <a href="#start">ابدأ</a>
+      <a href="#faq">أسئلة</a>
+      <a href="waseet/">الوسيط</a>
+    </div>
+    <a class="btn btn-main btn-sm js-dl" href="#start">⬇️ حمّل مجاناً</a>
+  </div>
+</nav>
 
-    <nav class="fixed w-full z-50 top-0 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#top" class="flex items-center gap-3 cursor-pointer">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
-                    <i class="fas fa-atom text-white text-lg"></i>
-                </div>
-                <span class="text-2xl font-bold tracking-wide">نواة<span class="text-blue-500">.</span></span>
-            </a>
-            <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
-                <a href="#top" class="hover:text-white transition-all">من نحن</a>
-                <a href="#product" class="hover:text-white transition-all text-blue-400">منظومة نواة بوز</a>
-                <a href="#features" class="hover:text-white transition-all">المميزات</a>
-            </div>
-            <div class="flex gap-5 items-center">
-                <a href="https://wa.me/218923497337" target="_blank" class="text-gray-400 hover:text-green-400 transition transform hover:scale-110">
-                    <i class="fab fa-whatsapp text-2xl"></i>
-                </a>
-                <a href="https://facebook.com/yourpage" target="_blank" class="text-gray-400 hover:text-blue-500 transition transform hover:scale-110">
-                    <i class="fab fa-facebook-f text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
+<header class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="wrap">
+    <div>
+      <span class="pill"><span class="dot"></span>الإصدار 3.5.1 — مزامنة أسرع وأخف</span>
+      <h1>نقطة بيع كاملة<br><span class="grad">تشتغل حتى بدون إنترنت.</span></h1>
+      <p class="lead">منظومة <strong>نواة بوز</strong> تدير محلك من شاشة واحدة: البيع بالباركود، المخزون والجرد، الأرباح والمصروفات، الديون، ومزامنة مع السحابة متى ما توفّر الإنترنت.</p>
+      <div class="cta">
+        <a class="btn btn-main js-dl" href="#start">⬇️ جرّبها مجاناً 10 أيام</a>
+        <a class="btn btn-ghost" href="#demo">▶️ شاهد العرض (دقيقتين)</a>
+      </div>
+      <div class="trust">
+        <span>📴 تعمل أوفلاين</span><span>🔑 رخصة مدى الحياة</span><span>🖨️ باركود وطابعات حرارية</span><span>☁️ نسخة سحابية</span>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="scene" id="scene">
+        <div class="monitor"><div class="screen"><img src="media/nawat-pos-demo-poster.jpg" alt="" width="1280" height="720" fetchpriority="high"></div></div>
+        <div class="stand"></div><div class="base"></div>
+        <div class="chip3d c1"><span class="e">💰</span><span><small>أرباح الأسبوع</small><strong>+4,041 د.ل</strong></span></div>
+        <div class="chip3d c2"><span class="e">🧾</span><span><small>فاتورة #34</small><strong>تم الدفع نقداً</strong></span></div>
+        <div class="chip3d c3"><span class="e">📦</span><span><small>تنبيه المخزون</small><strong>3 أصناف ناقصة</strong></span></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <header class="relative min-h-screen flex items-center justify-center pt-24 px-6 pb-12">
-        <div class="max-w-5xl mx-auto text-center tilt-container w-full" data-aos="zoom-out" data-aos-duration="1500">
-            
-            <div class="tilt-element inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs md:text-sm font-semibold text-blue-200 mb-8 backdrop-blur-sm">
-                <span class="relative flex h-2.5 w-2.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-                </span>
-                الإصدار الأحدث لعام 2026 متاح الآن
-            </div>
+<section id="features" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">كل اللي يحتاجه محلك</div>
+      <h2>منظومة واحدة… بدل عشر دفاتر 📒</h2>
+      <p class="sub">من أول بيعة في الصباح لين تقرير آخر الشهر، كل شي محسوب ومرتب وقدامك.</p>
+    </div>
+    <div class="bento">
+      <div class="card hl wide tall rv">
+        <div class="ic">🛒</div>
+        <h3>نقطة بيع سريعة</h3>
+        <p>ابحث بالاسم أو امسح الباركود والصنف ينزل في الفاتورة. خصم وضريبة، أكثر من فاتورة مفتوحة، وطباعة حرارية أو A4 أو PDF.</p>
+        <div class="tags"><span>💵 نقدي</span><span>💳 بطاقة</span><span>🏦 تحويل</span><span>🔀 هجين</span><span>📝 بالآجل</span></div>
+      </div>
+      <div class="card wide rv"><div class="ic">📦</div><h3>مخزون وجرد ذكي</h3><p>جرد حسب كل تصنيف، تنبيه النواقص، إدارة التالف والهدر، وسجل لكل حركة.</p></div>
+      <div class="card rv"><div class="ic">📊</div><h3>تقارير وأرباح</h3><p>يومي وأسبوعي وشهري، وتقرير مبيعات لكل مستخدم PDF وExcel.</p></div>
+      <div class="card rv"><div class="ic">🤝</div><h3>الديون والمستحقات</h3><p>اللي لك واللي عليك، سداد جزئي، وكشف لكل زبون ومورد.</p></div>
+      <div class="card rv"><div class="ic">🚚</div><h3>المشتريات</h3><p>فواتير الموردين والمدفوع والباقي، والمخزون يزيد تلقائياً.</p></div>
+      <div class="card rv"><div class="ic">💲</div><h3>الدولار وسعر الصرف</h3><p>أسعار بالدولار تتحدث مع سعر الصرف اللي تحدده.</p></div>
+      <div class="card rv"><div class="ic">🏦</div><h3>الخزينة والمصروفات</h3><p>نقدي وبطاقة وتحويل، والمصروفات تتوزع على أيامها في صافي الربح.</p></div>
+      <div class="card rv"><div class="ic">👥</div><h3>مستخدمين وصلاحيات</h3><p>مدير وكاشير، وسجل نشاطات يوضح شنو صار ومنو داره.</p></div>
+      <div class="card wide rv"><div class="ic">☁️</div><h3>سحابة ومتجر إلكتروني</h3><p>الجهاز يتزامن مع النسخة السحابية، فتتابع محلك من أي مكان، ومتجر إلكتروني يستقبل طلبات زبائنك.</p></div>
+      <div class="card wide rv"><div class="ic">🏷️</div><h3>ملصقات الباركود والاستيراد</h3><p>اطبع ملصقات باركود لمنتجاتك، واستورد أو صدّر كل المنتجات من ملف Excel دفعة واحدة.</p></div>
+    </div>
+  </div>
+</section>
 
-            <h1 class="tilt-element hero-title text-5xl md:text-7xl lg:text-[5.5rem] font-black mb-8 text-white">
-                نحول رؤيتك التجارية <br>
-                <span class="gradient-text-custom">إلى واقع رقمي مستقر.</span>
-            </h1>
+<section id="trades" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">تخصص المحل</div>
+      <h2>تناسب أغلب الأنشطة في السوق 🏪</h2>
+      <p class="sub">اختار تخصص محلك من الإعدادات، وتظهرلك أدوات نشاطك بس.</p>
+    </div>
+    <div class="trades">
+      <div class="trade rv"><span class="e">🛒</span><div><h4>سوبرماركت ومواد غذائية</h4><p>بيع بالقطعة وبالميزان.</p></div></div>
+      <div class="trade rv"><span class="e">👕</span><div><h4>ملابس وأحذية</h4><p>مقاسات وألوان يختارها الكاشير عند البيع.</p></div></div>
+      <div class="trade rv"><span class="e">📱</span><div><h4>هواتف وإلكترونيات</h4><p>مع قسم الصيانة وتذاكر الأجهزة.</p></div></div>
+      <div class="trade rv"><span class="e">💊</span><div><h4>صيدليات</h4><p>بيع بالشريط وبالعلبة.</p></div></div>
+      <div class="trade rv"><span class="e">📦</span><div><h4>جملة</h4><p>بالكرتونة وبالقطعة.</p></div></div>
+      <div class="trade rv"><span class="e">🍽️</span><div><h4>مطاعم ومقاهي</h4><p>طاولات، طلب داخلي وخارجي.</p></div></div>
+      <div class="trade rv"><span class="e">🥐</span><div><h4>مخابز وحلويات</h4><p>متابعة المواد الخام المستهلكة.</p></div></div>
+      <div class="trade rv"><span class="e">🧰</span><div><h4>تجزئة عامة</h4><p>بيع بالقطعة لأي نشاط.</p></div></div>
+    </div>
+  </div>
+</section>
 
-            <p class="tilt-element hero-desc text-gray-300 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-14 font-light">
-                نقدم حلولاً برمجية ذكية لا تعتمد على الإنترنت <span class="font-bold text-white bg-white/10 px-2 py-1 rounded mx-1 text-sm md:text-lg">Offline-First</span> لضمان استمرارية عملك. منظومات مبيعات، تطبيقات، ومواقع مصممة بأعلى معايير الجودة العالمية.
-            </p>
+<section id="demo" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">شوفها وهي تشتغل</div>
+      <h2>جولة في المنظومة خلال دقيقتين 🎬</h2>
+    </div>
+    <div class="demo">
+      <div class="frame" id="frame">
+        <video id="vid" controls muted loop playsinline preload="none" poster="media/nawat-pos-demo-poster.jpg" aria-label="فيديو تعريفي بمنظومة نواة بوز">
+          <source src="media/nawat-pos-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 tilt-element">
-                <div class="magnetic-wrap w-full sm:w-auto">
-                    <a href="#product" class="magnetic-btn btn-primary text-white px-10 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 w-full sm:w-auto">
-                        اكتشف منظومتنا <i class="fas fa-rocket transform -rotate-45"></i>
-                    </a>
-                </div>
-                <div class="magnetic-wrap w-full sm:w-auto">
-                    <a href="https://wa.me/218923497337" class="magnetic-btn btn-outline text-white px-10 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 w-full sm:w-auto">
-                        تواصل مع المبيعات <i class="fas fa-headset"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+<section id="start" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">ابدأ في دقيقة</div>
+      <h2>ثلاث خطوات وتبدأ تبيع 🚀</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="e">⬇️</span><h3>حمّل</h3><p>ملف التثبيت لـ Windows من الزر تحت.</p></div>
+      <div class="step rv"><span class="e">⚙️</span><h3>ثبّت</h3><p>شغّل الملف واتبع خطوات التثبيت.</p></div>
+      <div class="step rv"><span class="e">✅</span><h3>ابدأ البيع</h3><p>سجّل الدخول، ضيف منتجاتك أو استوردها من Excel، وابدأ.</p></div>
+    </div>
+    <div class="center rv" style="margin-top:34px">
+      <a class="btn btn-main js-dl" id="dl" href="https://github.com/Mosab-swissi/nawat-company/releases/download/v3.5.1/Nawat-POS-Setup-3.5.1.exe">⬇️ تحميل نواة بوز لـ Windows</a>
+      <p class="sub" style="margin-top:12px;font-size:14px">النسخة التجريبية كاملة ومجانية 10 أيام · يحتاج Windows 10 أو أحدث (64-bit)</p>
+    </div>
+  </div>
+</section>
 
-    <section id="product" class="py-24 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="glass-card rounded-[2.5rem] overflow-hidden grid lg:grid-cols-2 shadow-2xl">
-                <div class="p-8 md:p-14 flex flex-col justify-center order-2 lg:order-1" data-aos="fade-left">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-6 text-2xl">
-                        <i class="fas fa-barcode"></i>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 hero-title text-white">منظومة نواة بوز <br><span class="text-xl md:text-2xl text-gray-400 font-normal">Nawat POS System</span></h2>
-                    <p class="text-gray-300 text-base md:text-lg mb-8 hero-desc font-light">
-                        مصممة خصيصاً لنقاط البيع السريعة وإدارة المخزون المعقدة. استقرار تام بفضل عملها أوفلاين، مع دعم كامل لكافة أجهزة الباركود والطابعات الحرارية.
-                    </p>
-                    <ul class="space-y-4 mb-10 hero-desc text-sm md:text-base">
-                        <li class="flex items-center gap-4 text-gray-200"><i class="fas fa-check-circle text-blue-500 text-lg"></i> تقارير إحصائية دقيقة (أرباح، مبيعات، هدر).</li>
-                        <li class="flex items-center gap-4 text-gray-200"><i class="fas fa-check-circle text-blue-500 text-lg"></i> واجهة مستخدم (UI) عصرية وسهلة التعلم.</li>
-                        <li class="flex items-center gap-4 text-gray-200"><i class="fas fa-check-circle text-blue-500 text-lg"></i> رخصة مدى الحياة تُفعل برقم جهازك (HWID).</li>
-                    </ul>
-                    <div class="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6">
-                        <div class="text-center sm:text-right">
-                            <h4 class="font-bold text-base mb-1 text-white">النسخة التجريبية</h4>
-                            <p class="text-sm text-gray-400">10 أيام مجانية بالكامل.</p>
-                        </div>
-                       <a href="https://github.com/Mosab-swissi/nawat-company/releases/download/v3.3.6/Nawat-POS-Setup-3.3.6.exe" class="w-full sm:w-auto btn-primary px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-sm">
-    <i class="fas fa-download"></i> تحميل (Windows)
-            </a>
-                    </div>
-                </div>
-                <div class="relative min-h-[350px] lg:min-h-full bg-black/40 order-1 lg:order-2 flex items-center justify-center p-6 border-b lg:border-b-0 lg:border-r border-white/5">
-                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10" data-aos="zoom-in" data-aos-delay="200">
-                        <video class="w-full h-auto object-cover" controls autoplay muted loop playsinline preload="metadata" poster="media/nawat-pos-demo-poster.jpg" aria-label="فيديو تعريفي بمنظومة نواة بوز">
-                            <source src="media/nawat-pos-demo.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="services" class="below">
+  <div class="wrap">
+    <div class="head center rv">
+      <div class="kicker">أكثر من نقطة بيع</div>
+      <h2>حلول برمجية على مقاس شغلك 💡</h2>
+      <p class="sub">قسم البرمجيات والخدمات الإلكترونية في شركة الوسيط يبني لك اللي تحتاجه.</p>
+    </div>
+    <div class="services">
+      <div class="card rv"><div class="ic">🌐</div><h3>مواقع الويب</h3><p>مواقع تعريفية، متاجر إلكترونية، وصفحات هبوط سريعة ومجهزة لمحركات البحث.</p></div>
+      <div class="card rv"><div class="ic">📲</div><h3>تطبيقات الهواتف</h3><p>تطبيقات أندرويد وآيفون توصّل خدماتك لزبائنك بسهولة.</p></div>
+      <div class="card rv"><div class="ic">🧩</div><h3>أنظمة مخصصة</h3><p>أنظمة إدارية من الصفر للتفاصيل اللي ما توفرهاش البرامج الجاهزة.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section id="features" class="py-24 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 hero-title text-white">حلول برمجية متكاملة</h2>
-            <p class="text-gray-400 text-base md:text-lg hero-desc max-w-2xl mx-auto">إلى جانب أنظمة المبيعات، نقدم خدمات برمجية مخصصة للشركات والمؤسسات ترتقي بأعمالهم.</p>
-        </div>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8">
-            <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-globe text-3xl text-blue-400 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">مواقع الويب</h3>
-                <p class="text-gray-400 text-sm hero-desc">تصميم وبرمجة مواقع تعريفية، متاجر إلكترونية، وصفحات هبوط جذابة ومحسنة لمحركات البحث.</p>
-            </div>
-            <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-mobile-screen text-3xl text-indigo-400 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">تطبيقات الهواتف</h3>
-                <p class="text-gray-400 text-sm hero-desc">بناء تطبيقات ذكية لمختلف المنصات لتسهيل وصول زبائنك لخدماتك وتقديم تجربة مستخدم فريدة.</p>
-            </div>
-            <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-code text-3xl text-purple-400 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">أنظمة مخصصة</h3>
-                <p class="text-gray-400 text-sm hero-desc">تطوير أنظمة إدارية من الصفر لتناسب التعقيدات الخاصة بعملك والتي لا توفرها البرامج الجاهزة.</p>
-            </div>
-        </div>
-    </section>
+<section id="faq" class="below">
+  <div class="wrap" style="max-width:820px">
+    <div class="head center rv"><div class="kicker">أسئلة متكررة</div><h2>عندك سؤال؟ 🤔</h2></div>
+    <details class="rv"><summary>هل المنظومة تشتغل بدون إنترنت؟</summary><p>نعم. نسخة Windows تبيع وتحفظ كل شي على الجهاز، ولما يرجع الإنترنت تتزامن مع السحابة لو مفعّلها.</p></details>
+    <details class="rv"><summary>كيف تتفعّل الرخصة؟</summary><p>الرخصة مدى الحياة وتتفعّل برقم جهازك (HWID). تواصل معنا على واتساب لتفعيلها.</p></details>
+    <details class="rv"><summary>هل تدعم الباركود والطابعات الحرارية؟</summary><p>نعم، تدعم قارئات الباركود والطابعات الحرارية وطباعة A4 وPDF، وطباعة ملصقات الباركود.</p></details>
+    <details class="rv"><summary>نقدر نتابع المحل من برّا؟</summary><p>نعم، مع النسخة السحابية تشوف المبيعات والأرقام من المتصفح، والجهاز في المحل يتزامن معاها.</p></details>
+    <details class="rv"><summary>شنو يصير بعد العشر أيام التجريبية؟</summary><p>تواصل معنا على واتساب لتفعيل الرخصة على جهازك.</p></details>
+  </div>
+</section>
 
-    <footer class="relative z-10 border-t border-white/10 bg-black/50 backdrop-blur-md pt-16 pb-8 px-6 mt-10">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 mb-10">
-            <div>
-                <div class="flex items-center gap-3 mb-5">
-                    <i class="fas fa-atom text-blue-500 text-xl"></i>
-                    <span class="text-xl font-bold">نواة للأنظمة</span>
-                </div>
-                <p class="text-gray-400 text-sm hero-desc mb-5">نبتكر الحلول، لنضمن لك الاستقرار. شريكك التقني الموثوق في ليبيا.</p>
-            </div>
-            <div class="md:text-center">
-                <h4 class="font-bold text-base mb-5">روابط سريعة</h4>
-                <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#product" class="hover:text-blue-400 transition">تحميل المنظومة</a></li>
-                    <li><a href="#features" class="hover:text-blue-400 transition">خدماتنا البرمجية</a></li>
-                </ul>
-            </div>
-            <div class="md:text-left">
-                <h4 class="font-bold text-base mb-5 text-right md:text-left">تواصل معنا</h4>
-                <div class="flex gap-4 justify-start md:justify-end">
-                    <a href="https://facebook.com/yourpage" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition shadow-lg">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://wa.me/218923497337" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition shadow-lg">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center text-gray-600 text-xs border-t border-white/5 pt-6">
-            © 2026 نواة للأنظمة البرمجية. جميع الحقوق محفوظة.
-        </div>
-    </footer>
+<section class="below">
+  <div class="wrap">
+    <div class="band rv">
+      <h2>جاهز تنظّم محلك؟ ✨</h2>
+      <p class="sub" style="margin:0 auto;color:#dbe4ff">حمّل النسخة التجريبية اليوم، ولو عندك أي سؤال فريقنا على واتساب.</p>
+      <div class="cta">
+        <a class="btn btn-main js-dl" href="#start" style="background:#fff;color:#1e1b4b">⬇️ حمّل مجاناً</a>
+        <a class="btn btn-ghost" href="https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9%20%D9%86%D9%88%D8%A7%D8%A9%20%D8%A8%D9%88%D8%B2" target="_blank" rel="noopener">💬 كلّمنا على واتساب</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <a href="#top" id="scrollTopBtn" class="fixed bottom-8 left-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center z-50 hover:bg-blue-500 hover:scale-110 transition-transform duration-300">
-        <i class="fas fa-arrow-up text-xl"></i>
-    </a>
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="#top" class="brand" style="font-size:18px"><img src="media/nawat-mark.png" alt="" width="30" height="30" loading="lazy">نواة للأنظمة<b>.</b></a>
+      <p style="margin-top:8px">© 2026 نواة للأنظمة البرمجية. جميع الحقوق محفوظة.</p>
+    </div>
+    <a class="parent" href="waseet/">🏛️ إحدى خدمات شركة الوسيط</a>
+  </div>
+</footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 50 });
+<a class="wa" href="https://wa.me/218923497337?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9%20%D9%86%D9%88%D8%A7%D8%A9%20%D8%A8%D9%88%D8%B2" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب">
+  <span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#25d366" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.5L3 29l7.1-1.9c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.6C28.8 8.6 23 3 16 3zm0 23.4c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.2 9.8 10 5.1 16 5.1s10.7 4.7 10.7 10.6S21.9 26.4 16 26.4zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></span>
+  <span>راسلنا على واتساب</span>
+</a>
 
-        // إظهار وإخفاء زر الصعود للأعلى
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('solid',window.scrollY>20)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
-        const tiltContainer = document.querySelector('.tilt-container');
-        const tiltElements = document.querySelectorAll('.tilt-element');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
 
-        if(tiltContainer) {
-            document.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 120; 
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 120; 
-                tiltElements.forEach(el => {
-                    el.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                });
-            });
-            document.addEventListener('mouseleave', () => {
-                tiltElements.forEach(el => {
-                    el.style.transform = `rotateY(0deg) rotateX(0deg)`;
-                });
-            });
-        }
+  // Demo video: tilt flattens and playback starts only when it is on screen.
+  var frame=document.getElementById('frame'),vid=document.getElementById('vid');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){frame.classList.add('in');var p=vid.play();if(p&&p.catch)p.catch(function(){})}
+      else if(!vid.paused){vid.pause()}
+    })},{threshold:.35}).observe(frame);
+  }
 
-        const magneticBtns = document.querySelectorAll('.magnetic-btn');
-        magneticBtns.forEach(btn => {
-            const wrap = btn.parentElement;
-            wrap.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const h = rect.width / 2;
-                const v = rect.height / 2;
-                const x = e.clientX - rect.left - h;
-                const y = e.clientY - rect.top - v;
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
-            });
-            wrap.addEventListener('mouseleave', () => {
-                btn.style.transform = `translate(0px, 0px) scale(1)`;
-            });
-            btn.addEventListener('click', function(e) {
-                let x = e.clientX - e.target.getBoundingClientRect().left;
-                let y = e.clientY - e.target.getBoundingClientRect().top;
-                let ripples = document.createElement('span');
-                ripples.style.left = x + 'px';
-                ripples.style.top = y + 'px';
-                ripples.classList.add('ripple');
-                this.appendChild(ripples);
-                setTimeout(() => { ripples.remove(); }, 600);
-            });
-        });
-
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let mouse = {
-            x: null,
-            y: null,
-            radius: (canvas.height/50) * (canvas.width/50)
-        }
-
-        window.addEventListener('mousemove', function(event) {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-
-        window.addEventListener('mouseout', function() {
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
-
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x;
-                this.y = y;
-                this.directionX = directionX;
-                this.directionY = directionY;
-                this.size = size;
-                this.color = color;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = '#60a5fa'; 
-                ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
-                if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
-
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx*dx + dy*dy);
-                
-                if (distance < mouse.radius + this.size) {
-                    const force = 6; 
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += force; }
-                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= force; }
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += force; }
-                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= force; }
-                }
-                
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
-        }
-
-        function init() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 14000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 0.5;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * 1.5) - 0.75;
-                let directionY = (Math.random() * 1.5) - 0.75;
-                let color = '#8C5523';
-
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
-
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-                    + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                    if (distance < (canvas.width/8) * (canvas.height/8)) {
-                        opacityValue = 1 - (distance/13000);
-                        ctx.strokeStyle = 'rgba(96, 165, 250,' + opacityValue + ')'; 
-                        ctx.lineWidth = 0.8;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0,0,innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-            }
-            connect();
-        }
-
-        window.addEventListener('resize', function() {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            mouse.radius = ((canvas.height/50) * (canvas.height/50));
-            init();
-        });
-
-        init();
-        animate();
-    </script>
+  // Pointer tilt for the hero device: desktop mouse only, one transform per frame.
+  var scene=document.getElementById('scene');
+  if(!reduce&&window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+    var raf=0,tx=0,ty=0;
+    window.addEventListener('mousemove',function(e){
+      tx=(e.clientX/window.innerWidth-.5);ty=(e.clientY/window.innerHeight-.5);
+      if(!raf)raf=requestAnimationFrame(function(){raf=0;scene.style.transform='rotateY('+(-14+tx*14)+'deg) rotateX('+(8-ty*10)+'deg)'});
+    },{passive:true});
+  }
+})();
+</script>
 </body>
 </html>
