@@ -5,8 +5,8 @@
 window.Waseet = (function () {
   var C = {
     domain: '',
-    web: 'https://al-waseet.mosabswissi123.workers.dev/',
-    apk: 'https://al-waseet.mosabswissi123.workers.dev/Waseet.apk',
+    web: 'https://waseet-app.pages.dev/',
+    apk: 'https://waseet-app.pages.dev/Waseet.apk',
     play: '',
     api: 'https://waset-api.mosabswissi123.workers.dev/?action=public',
     wa: '218923497337',
