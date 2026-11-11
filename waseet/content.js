@@ -93,6 +93,7 @@ window.WaseetContent = {
       'contact.addr1': 'طرابلس، ليبيا', 'contact.addr2': 'غوط الشعال — شارع عيادة الشفاء', 'contact.wa': 'واتساب', 'contact.map': 'افتح في الخريطة',
       'contact.hours': 'أوقات العمل: [تُضاف]',
       'foot.rights': '© 2026 شركة الوسيط · طرابلس، ليبيا', 'foot.legal': '[نص الترخيص والإفصاح القانوني — يُضاف بعد اعتماده]',
+      'video.kicker': 'شوفه قبل ما تحمّله', 'video.h2': 'جولة في تطبيق الوسيط في دقيقة ونص', 'video.sub': 'الأسعار، والبورصة العالمية، والحاسبة، والزكاة، والكروت، وحاسبة الشحن، في فيديو واحد.', 'video.m1': '⏱ 1:32', 'video.m2': '🔊 بالصوت', 'video.m3': '📱 من التطبيق الحقيقي', 'video.play': 'شغّل الفيديو', 'video.aria': 'فيديو جولة في تطبيق الوسيط',
       'tick.label': 'أسعار اليوم مباشرة', 'svc.liveCur': 'سعر البيع الآن', 'svc.liveTr': 'الحوالات المتاحة الآن', 'svc.more': 'كل الأسعار',
       'close.w1': 'وضوح.', 'close.w2': 'ثقة.', 'close.w3': 'متابعة.', 'close.sub': 'من صرف بسيط لين منظومة كاملة لمحلك، نخدمك بنفس الوضوح.', 'close.cta': 'كلّمنا على واتساب',
       'wa.float': 'راسلنا على واتساب', 'wa.aria': 'تواصل معنا على واتساب', 'wa.hello': 'مرحباً شركة الوسيط', 'wa.shop': 'مرحباً، أبي أطلب منتج أونلاين'
@@ -139,6 +140,7 @@ window.WaseetContent = {
       'contact.addr1': 'Tripoli, Libya', 'contact.addr2': 'Ghut Al-Shaal — Al-Shifa Clinic Street', 'contact.wa': 'WhatsApp', 'contact.map': 'Open in Maps',
       'contact.hours': 'Opening hours: [to be added]',
       'foot.rights': '© 2026 Al-Waseet · Tripoli, Libya', 'foot.legal': '[Licensing and legal disclosure — to be added once approved]',
+      'video.kicker': 'See it before you install', 'video.h2': 'A 90-second tour of the Al-Waseet app', 'video.sub': 'Rates, global markets, the calculator, zakat, cards and the shipping calculator, in one video.', 'video.m1': '⏱ 1:32', 'video.m2': '🔊 Narrated (Arabic)', 'video.m3': '📱 Recorded in the real app', 'video.play': 'Play video', 'video.aria': 'Al-Waseet app tour video',
       'tick.label': 'Live rates today', 'svc.liveCur': 'Sell rate now', 'svc.liveTr': 'Transfers available now', 'svc.more': 'All rates',
       'close.w1': 'Clarity.', 'close.w2': 'Trust.', 'close.w3': 'Follow-through.', 'close.sub': 'From a simple exchange to a full system for your shop, served with the same clarity.', 'close.cta': 'Talk to us on WhatsApp',
       'wa.float': 'Message us on WhatsApp', 'wa.aria': 'Contact us on WhatsApp', 'wa.hello': 'Hello Al-Waseet', 'wa.shop': 'Hello, I would like to order a product online'
