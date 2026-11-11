@@ -150,6 +150,24 @@ footer a:hover{color:#fff}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 
+/* QR: scan on the phone, share to the computer, campaign files */
+.qrbox{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;align-items:center;padding:40px;border-radius:var(--r);background:linear-gradient(135deg,rgba(79,70,229,.16),rgba(59,130,246,.06));border:1px solid var(--line)}
+.qrcard{position:relative;background:#fff;border-radius:26px;padding:18px;box-shadow:0 0 0 4px rgba(245,210,122,.75),0 30px 60px rgba(0,0,0,.45);justify-self:center;width:100%;max-width:320px}
+.qrcard img{display:block;width:100%;height:auto;border-radius:12px}
+.qrcard .scanline{position:absolute;left:18px;right:18px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,#f5d27a,transparent);box-shadow:0 0 18px #f5d27a;top:18px;animation:scan 2.6s ease-in-out infinite}
+@keyframes scan{0%,100%{transform:translateY(0)}50%{transform:translateY(280px)}}
+.qrbox h2{font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:8px 0 10px}
+.qrsteps{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
+.qrsteps span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:14px;font-weight:600}
+.qrfiles{display:flex;flex-wrap:wrap;gap:10px}
+.qrfiles .btn{padding:11px 16px;font-size:14px}
+.qrshare{display:none;gap:10px;flex-wrap:wrap;margin-top:14px}
+.is-phone .qrshare{display:flex}
+.qrtoast{position:fixed;inset:auto 16px 96px 16px;z-index:60;max-width:560px;margin:0 auto;padding:14px 16px;border-radius:16px;background:#0f1a3d;border:1px solid rgba(245,210,122,.45);box-shadow:0 20px 50px rgba(0,0,0,.5);display:none;gap:12px;align-items:center;font-size:14px}
+.qrtoast.show{display:flex}.qrtoast b{color:var(--gold)}.qrtoast .x{margin-inline-start:auto;background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.qrcard .scanline{display:none}}
+@media (max-width:980px){.qrbox{grid-template-columns:1fr;padding:26px}.qrcard{order:-1;max-width:260px}@keyframes scan{50%{transform:translateY(220px)}}}
+
 @media (max-width:980px){
   .hero{padding-top:110px;min-height:auto}
   .hero .wrap{grid-template-columns:1fr;gap:44px}
@@ -185,6 +203,7 @@ footer a:hover{color:#fff}
       <a href="#trades">الأنشطة</a>
       <a href="#demo">العرض</a>
       <a href="#start">ابدأ</a>
+      <a href="#qr">QR</a>
       <a href="#faq">أسئلة</a>
       <a href="waseet/">الوسيط</a>
     </div>
@@ -196,7 +215,7 @@ footer a:hover{color:#fff}
   <div class="grid-bg"></div>
   <div class="wrap">
     <div>
-      <span class="pill"><span class="dot"></span>الإصدار 3.5.1 — مزامنة أسرع وأخف</span>
+      <span class="pill"><span class="dot"></span>الإصدار 3.5.3 — قفل يومي وصلاحيات للموظفين</span>
       <h1>نقطة بيع كاملة<br><span class="grad">تشتغل حتى بدون إنترنت.</span></h1>
       <p class="lead">منظومة <strong>نواة بوز</strong> تدير محلك من شاشة واحدة: البيع بالباركود، المخزون والجرد، الأرباح والمصروفات، الديون، ومزامنة مع السحابة متى ما توفّر الإنترنت.</p>
       <div class="cta">
@@ -294,11 +313,40 @@ footer a:hover{color:#fff}
       <div class="step rv"><span class="e">✅</span><h3>ابدأ البيع</h3><p>سجّل الدخول، ضيف منتجاتك أو استوردها من Excel، وابدأ.</p></div>
     </div>
     <div class="center rv" style="margin-top:34px">
-      <a class="btn btn-main js-dl" id="dl" href="https://github.com/Mosab-swissi/nawat-company/releases/download/v3.5.1/Nawat-POS-Setup-3.5.1.exe">⬇️ تحميل نواة بوز لـ Windows</a>
+      <a class="btn btn-main js-dl" id="dl" href="https://github.com/Mosab-swissi/nawat-company/releases/download/v3.5.3/Nawat-POS-Setup-3.5.3.exe">⬇️ تحميل نواة بوز لـ Windows</a>
       <p class="sub" style="margin-top:12px;font-size:14px">النسخة التجريبية كاملة ومجانية 10 أيام · يحتاج Windows 10 أو أحدث (64-bit)</p>
     </div>
   </div>
 </section>
+
+<section id="qr" class="below">
+  <div class="wrap">
+    <div class="qrbox rv">
+      <div>
+        <div class="kicker">امسح · شارك · اطبع</div>
+        <h2>كود واحد يوصّل محلك لـ <span style="color:var(--gold)">نواة بوز</span></h2>
+        <p class="sub only-desktop">صوّب كاميرا الموبايل على الكود، ويفتحلك الموقع على طول. ابعته لأي صاحب محل تعرفه.</p>
+        <p class="sub only-phone" style="display:none">نواة بوز تتثبت على كمبيوتر Windows. ابعت الرابط لنفسك أو لصاحب المحل، وحمّلها من الكمبيوتر.</p>
+        <div class="qrsteps"><span>📱 امسح</span><span>💻 افتح على الكمبيوتر</span><span>⬇️ حمّل وجرّب 10 أيام</span></div>
+        <div class="qrshare">
+          <a class="btn btn-main" id="qrWa" href="https://wa.me/?text=%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9%20%D9%86%D9%88%D8%A7%D8%A9%20%D8%A8%D9%88%D8%B2%20%D9%84%D9%84%D9%85%D8%AD%D9%84%D8%A7%D8%AA%20%E2%80%94%20%D8%AD%D9%85%D9%91%D9%84%D9%87%D8%A7%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%3A%20https%3A%2F%2Fnawat.net.ly%2F%23start" target="_blank" rel="noopener">💬 ابعت الرابط على واتساب</a>
+          <button class="btn btn-ghost" type="button" id="qrShare">🔗 مشاركة / نسخ الرابط</button>
+        </div>
+        <p class="sub" style="margin:22px 0 10px;font-size:14px">ملفات الحملة جاهزة للطباعة والنشر:</p>
+        <div class="qrfiles">
+          <a class="btn btn-ghost" href="media/qr/nawat-poster-a4.pdf" download>🖨️ بوستر A4 (PDF)</a>
+          <a class="btn btn-ghost" href="media/qr/nawat-poster-a4.png" download>🖼️ بوستر للسوشيال (PNG)</a>
+          <a class="btn btn-ghost" href="media/qr/nawat-sticker-10cm.pdf" download>🏷️ ملصق 10×10 سم</a>
+          <a class="btn btn-ghost" href="media/qr/nawat-qr.png" download>▦ الكود PNG</a>
+          <a class="btn btn-ghost" href="media/qr/nawat-qr.svg" download>✒️ الكود SVG</a>
+        </div>
+      </div>
+      <div class="qrcard"><img src="media/qr/nawat-qr.svg" alt="كود QR لموقع nawat.net.ly" width="300" height="300" loading="lazy"><span class="scanline" aria-hidden="true"></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="qrtoast" id="qrToast" role="status"><span>👋 أهلاً! <b>نواة بوز</b> للكمبيوتر — ابعت الرابط لنفسك وحمّلها من هناك.</span><a class="btn btn-main" href="#qr" style="padding:9px 14px;font-size:14px">كيف؟</a><button class="x" type="button" aria-label="إغلاق">×</button></div>
 
 <section id="services" class="below">
   <div class="wrap">
@@ -374,6 +422,23 @@ footer a:hover{color:#fff}
       if(e.isIntersecting){frame.classList.add('in');var p=vid.play();if(p&&p.catch)p.catch(function(){})}
       else if(!vid.paused){vid.pause()}
     })},{threshold:.35}).observe(frame);
+  }
+
+  // QR visitors on a phone: the app is for Windows, so offer to send the link to the computer.
+  var phone=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  if(phone){document.documentElement.classList.add('is-phone');
+    document.querySelectorAll('.only-desktop').forEach(function(e){e.style.display='none'});
+    document.querySelectorAll('.only-phone').forEach(function(e){e.style.display=''});}
+  var shareBtn=document.getElementById('qrShare'),link='https://nawat.net.ly/#start';
+  if(shareBtn)shareBtn.addEventListener('click',function(){
+    if(navigator.share){navigator.share({title:'نواة بوز',text:'منظومة نواة بوز للمحلات — حمّلها من الكمبيوتر',url:link}).catch(function(){});return}
+    if(navigator.clipboard){navigator.clipboard.writeText(link).then(function(){shareBtn.textContent='✅ تم نسخ الرابط'})}
+  });
+  var toast=document.getElementById('qrToast');
+  if(toast&&phone&&/[?&]src=qr\b/.test(location.search)){
+    setTimeout(function(){toast.classList.add('show')},1200);
+    toast.querySelector('.x').addEventListener('click',function(){toast.classList.remove('show')});
+    toast.querySelector('a').addEventListener('click',function(){toast.classList.remove('show')});
   }
 
   // Pointer tilt for the hero device: desktop mouse only, one transform per frame.
