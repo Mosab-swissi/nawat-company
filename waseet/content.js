@@ -1,14 +1,15 @@
 /* نصوص صفحة الوسيط والخدمات في مكان واحد (عربي + English).
    - لتعديل خدمة أو إضافتها: عدّل مصفوفة services تحت. كل خدمة لها أيقونة، ونص عربي وإنجليزي، وزر.
+     size: 'xl' (مربع كبير) أو 'wide' (عريض) أو بدون (صغير) لشبكة الـ bento. live: 'cur' أو 'tr' يعرض الأسعار المباشرة داخل البطاقة.
      الزر واحد من: { wa: 'نص رسالة الواتساب' } أو { link: 'nawat' } (من links.js).
    - أي نص بين [ ] مكان محجوز ينتظر المعلومة الصحيحة (لا تكتب أرقاماً أو تراخيص غير مؤكدة). */
 window.WaseetContent = {
   services: [
-    { id: 'fx', icon: '💱',
+    { id: 'fx', icon: '💱', size: 'xl', live: 'cur',
       ar: { title: 'صرف العملات', desc: 'بيع وشراء العملات بأسعار معلنة تتحدّث يومياً.', items: ['الدولار واليورو وعملات أخرى', 'السعر قدامك قبل المعاملة'] },
       en: { title: 'Currency exchange', desc: 'Buy and sell currencies at prices published and updated daily.', items: ['US dollar, euro and more', 'You see the price before you deal'] },
       cta: { wa: 'مرحباً، أبي أستفسر عن صرف العملات' } },
-    { id: 'transfers', icon: '🌍',
+    { id: 'transfers', icon: '🌍', size: 'wide', live: 'tr',
       ar: { title: 'الحوالات الخارجية', desc: 'حوالات لعدة دول، بسعر واضح ومتابعة لكل حوالة.', items: ['أسعار الحوالات معروضة مباشرة', 'متابعة حتى الاستلام'] },
       en: { title: 'International transfers', desc: 'Transfers to several countries, with a clear rate and follow-up on each one.', items: ['Transfer rates shown live', 'Followed up until received'] },
       cta: { wa: 'مرحباً، أبي أستفسر عن الحوالات الخارجية' } },
@@ -16,7 +17,7 @@ window.WaseetContent = {
       ar: { title: 'الوساطة التجارية', desc: 'نربطك بالطرف المناسب ونتابع الصفقة بوضوح من البداية للنهاية.', items: ['للتجار وأصحاب الأعمال', 'شروط واضحة قبل البدء'] },
       en: { title: 'Trade brokerage', desc: 'We connect you with the right party and follow the deal clearly from start to finish.', items: ['For merchants and business owners', 'Clear terms before we start'] },
       cta: { wa: 'مرحباً، أبي أستفسر عن الوساطة التجارية' } },
-    { id: 'pos', icon: '🧾', featured: true,
+    { id: 'pos', icon: '🧾', featured: true, size: 'wide', image: 'nawat-pos.webp',
       ar: { title: 'نواة بوز لنقاط البيع', desc: 'منظومة كاملة لإدارة المحل، تعمل حتى بدون إنترنت.', items: ['مبيعات ومخزون ومصاريف وديون', 'تجربة مجانية 10 أيام'] },
       en: { title: 'Nawat POS', desc: 'A complete system to run your shop, working even offline.', items: ['Sales, stock, expenses and debts', 'Free 10-day trial'] },
       cta: { link: 'nawat' } },
@@ -24,7 +25,7 @@ window.WaseetContent = {
       ar: { title: 'مواقع وتطبيقات وأنظمة', desc: 'قسم نواة يبني مواقع ومتاجر إلكترونية وأنظمة على مقاس شغلك.', items: ['مواقع ومتاجر إلكترونية', 'تطبيقات وأنظمة مخصصة'] },
       en: { title: 'Websites, apps & systems', desc: 'Our Nawat division builds websites, online stores and custom systems for your business.', items: ['Websites and online stores', 'Custom apps and systems'] },
       cta: { wa: 'مرحباً، أبي أستفسر عن خدمات البرمجة' } },
-    { id: 'shopping', icon: '🛍️',
+    { id: 'shopping', icon: '🛍️', size: 'wide',
       ar: { title: 'الطلب والشراء أونلاين', desc: 'تبي حاجة من متجر عالمي؟ نطلبها ونشتريها لك ونتابعها حتى توصلك.', items: ['شراء من المتاجر العالمية', 'دفع نيابة عنك ومتابعة الطلب'] },
       en: { title: 'Online ordering & shopping', desc: 'Need something from an online store abroad? We order it, pay for it and track it until it reaches you.', items: ['Buying from global stores', 'Payment on your behalf and tracking'] },
       cta: { wa: 'مرحباً، أبي أطلب منتج أونلاين' } }
@@ -87,11 +88,13 @@ window.WaseetContent = {
       'why.kicker': 'ليش الوسيط؟', 'why.h2': 'نشتغل بوضوح… ونتابع لين النهاية',
       'why.w1': 'وضوح كامل', 'why.w1d': 'السعر والعمولة قدامك قبل أي معاملة.', 'why.w2': 'سرعة في الإنجاز', 'why.w2d': 'معاملاتك تنجز بأقل وقت وبدون تعقيد.',
       'why.w3': 'سرية وأمان', 'why.w3d': 'بياناتك ومعاملاتك محفوظة ومحمية.', 'why.w4': 'مقر معروف', 'why.w4d': 'تقدر تزورنا في طرابلس وتتعامل وجهاً لوجه.',
-      'faq.kicker': 'أسئلة شائعة', 'faq.h2': 'عندك سؤال؟',
+      'faq.kicker': 'أسئلة شائعة', 'faq.h2': 'عندك سؤال؟', 'faq.sub': 'ما لقيتش جوابك؟ راسلنا على واتساب ونردّو عليك.',
       'contact.kicker': 'زورنا أو كلّمنا', 'contact.h2': 'تواصل معانا', 'contact.addrT': 'مقر شركة الوسيط',
       'contact.addr1': 'طرابلس، ليبيا', 'contact.addr2': 'غوط الشعال — شارع عيادة الشفاء', 'contact.wa': 'واتساب', 'contact.map': 'افتح في الخريطة',
       'contact.hours': 'أوقات العمل: [تُضاف]',
       'foot.rights': '© 2026 شركة الوسيط · طرابلس، ليبيا', 'foot.legal': '[نص الترخيص والإفصاح القانوني — يُضاف بعد اعتماده]',
+      'tick.label': 'أسعار اليوم مباشرة', 'svc.liveCur': 'سعر البيع الآن', 'svc.liveTr': 'الحوالات المتاحة الآن', 'svc.more': 'كل الأسعار',
+      'close.w1': 'وضوح.', 'close.w2': 'ثقة.', 'close.w3': 'متابعة.', 'close.sub': 'من صرف بسيط لين منظومة كاملة لمحلك، نخدمك بنفس الوضوح.', 'close.cta': 'كلّمنا على واتساب',
       'wa.float': 'راسلنا على واتساب', 'wa.aria': 'تواصل معنا على واتساب', 'wa.hello': 'مرحباً شركة الوسيط', 'wa.shop': 'مرحباً، أبي أطلب منتج أونلاين'
     },
     en: {
@@ -131,11 +134,13 @@ window.WaseetContent = {
       'why.kicker': 'Why Al-Waseet', 'why.h2': 'Clear work, followed through to the end',
       'why.w1': 'Full clarity', 'why.w1d': 'Rate and fee shown before any deal.', 'why.w2': 'Fast service', 'why.w2d': 'Your deals done quickly, without hassle.',
       'why.w3': 'Privacy and security', 'why.w3d': 'Your data and deals are kept safe.', 'why.w4': 'A known office', 'why.w4d': 'Visit us in Tripoli and deal face to face.',
-      'faq.kicker': 'FAQ', 'faq.h2': 'Have a question?',
+      'faq.kicker': 'FAQ', 'faq.h2': 'Have a question?', 'faq.sub': 'Didn’t find your answer? Message us on WhatsApp.',
       'contact.kicker': 'Visit or call us', 'contact.h2': 'Contact us', 'contact.addrT': 'Al-Waseet office',
       'contact.addr1': 'Tripoli, Libya', 'contact.addr2': 'Ghut Al-Shaal — Al-Shifa Clinic Street', 'contact.wa': 'WhatsApp', 'contact.map': 'Open in Maps',
       'contact.hours': 'Opening hours: [to be added]',
       'foot.rights': '© 2026 Al-Waseet · Tripoli, Libya', 'foot.legal': '[Licensing and legal disclosure — to be added once approved]',
+      'tick.label': 'Live rates today', 'svc.liveCur': 'Sell rate now', 'svc.liveTr': 'Transfers available now', 'svc.more': 'All rates',
+      'close.w1': 'Clarity.', 'close.w2': 'Trust.', 'close.w3': 'Follow-through.', 'close.sub': 'From a simple exchange to a full system for your shop, served with the same clarity.', 'close.cta': 'Talk to us on WhatsApp',
       'wa.float': 'Message us on WhatsApp', 'wa.aria': 'Contact us on WhatsApp', 'wa.hello': 'Hello Al-Waseet', 'wa.shop': 'Hello, I would like to order a product online'
     }
   }
